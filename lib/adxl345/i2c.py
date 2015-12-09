@@ -11,8 +11,12 @@ class ADXL345(adxl345.base.ADXL345_Base):
   STD_ADDRESS = 0x1D
   ALT_ADDRESS = 0x53
 
-  def __init__(self, alternate=False):
-    self.bus = smbus.SMBus(1)
+  def __init__(self, alternate=False, port=1):
+    """ Initialize the driver
+    :param alternate: use the standard or alternate I2C address as selected by pin SDO/ALT_ADDRESS
+    :param port: number of I2C bus to use
+    """
+    self.bus = smbus.SMBus(port)
     if alternate: 
       self.i2caddress = ADXL345.ALT_ADDRESS
     else:

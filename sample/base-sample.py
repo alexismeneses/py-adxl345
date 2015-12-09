@@ -6,7 +6,12 @@ import time
 from adxl345.i2c import ADXL345
 
 def main():
-  adxl = ADXL345()
+  # Build the I2C implementation of the driver. It expect two arguments
+  #   port: the I2C bus to use
+  #   alternate: must reflect if the pin SDO/ALT_ADDRESS is high or low
+  adxl = ADXL345(port=1, alternate=True)
+
+  # Print device ID
   deviceId = adxl.get_device_id()
   print("ADXL DeviceID: " + str(deviceId))
 
