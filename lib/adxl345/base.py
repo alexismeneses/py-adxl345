@@ -226,14 +226,14 @@ class ADXL345_Base:
 
   def set_offset(self, x, y, z):
     """ set hardware offset for the 3 axes of the ADXL, units are g """
-    def convert_offet(value):
+    def convert_offset(value):
       value = value / ADXL345_Base.SCALE_FACTOR / 4
       bytes = int(value)& 0xFF
       return bytes
     
-    self.set_register(ADXL345_Base.REG_OFSX, convert_offet(x))
-    self.set_register(ADXL345_Base.REG_OFSY, convert_offet(y))
-    self.set_register(ADXL345_Base.REG_OFSZ, convert_offet(z))
+    self.set_register(ADXL345_Base.REG_OFSX, convert_offset(x))
+    self.set_register(ADXL345_Base.REG_OFSY, convert_offset(y))
+    self.set_register(ADXL345_Base.REG_OFSZ, convert_offset(z))
 
   def calibrate(self):
     """ Auto calibrate the device offset. Put the device so as one axe is parallel to the gravity field (usually, put the device on a flat surface) """
@@ -268,7 +268,7 @@ class ADXL345_Base:
     offset_y = cal_y - y
     offset_z = cal_z - z
     
-    self.set_offset(offset_x, offest_y, offset_z)
+    self.set_offset(offset_x, offset_y, offset_z)
     
     return {'x': offset_x,
             'y': offset_y,

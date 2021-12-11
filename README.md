@@ -42,7 +42,7 @@ Run the following two command
 Usage
 -----
 
-You have to use either I2C protocol using adxl345.i2c.ADXL345 class (recommanded) or to
+You have to use either I2C protocol using adxl345.i2c.ADXL345 class (recommended) or to
 use SPI protocol using adxl345.spi.ADXL345 (experimental).
 
 You can find some code usage in [sample](https://github.com/alexismeneses/py-adxl345/tree/master/sample)
@@ -57,6 +57,6 @@ More information
 License
 -------
 
-Copyright © 2014, Alexis Meneses
+Copyright © 2014-2021, Alexis Meneses
 
 This software is licensed under the MIT License (see LICENSE file).

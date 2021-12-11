@@ -27,7 +27,7 @@ class ADXL345(adxl345.base.ADXL345_Base):
     return value;
 
   def get_registers(self, address, count):
-    self.spi.writebytes( [ address & 0x3F ] | READ_MASK | MULTIREAD_MASK )
+    self.spi.writebytes( [ (address & 0x3F) | READ_MASK | MULTIREAD_MASK ] )
     value = self.spi.readbytes(count)
     return value
 
